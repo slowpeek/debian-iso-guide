@@ -49,10 +49,10 @@ it is neat and simple.
 
 *Suffix* means size of images based on media capacity:
 
-| -bd   | BlueRay              |
+| -bd   | Blu-ray              |
 | -cd   | CD                   |
 | -dvd  | DVD                  |
-| -dlbd | double layer BlueRay |
+| -dlbd | double layer Blu-ray |
 | -16G  | 16G USB stick        |
 
 Points of interest:
