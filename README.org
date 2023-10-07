@@ -165,3 +165,38 @@ Good response:
 #+begin_example
   debian-12.0.0-amd64-netinst.iso: OK
 #+end_example
+
+** Use Debian ISO images as APT Sources
+
+There is also an extremely small installer which requires network to do its
+job. The image is named in versionless manner, just =mini.iso=.
+
+[@1] Create the folders (mountpoint) to mount the ISO files:
+
+#+begin_example
+  sudo mkdir -p /media/repo_1
+  sudo mkdir -p /media/repo_2
+  sudo mkdir -p /media/repo_3
+#+end_example
+
+[@2] Mount the ISO files:
+
+#+begin_example
+  sudo mount -o loop ~/Downloads/debian-12.0.0-amd64-DVD-1.iso /media/repo_1/
+  sudo mount -o loop ~/Downloads/debian-12.0.0-amd64-DVD-2.iso /media/repo_2/
+  sudo mount -o loop ~/Downloads/debian-12.0.0-amd64-DVD-3.iso /media/repo_3/
+#+end_example
+
+[@3] Edit the /etc/apt/sources.list file and add the repository:
+
+#+begin_example
+vim /etc/apt/sources.list
+	deb file:///media/repo_1/  bookworm main non-free-firmware
+	deb file:///media/repo_2/  bookworm main non-free-firmware
+	deb file:///media/repo_3/  bookworm main non-free-firmware
+#+end_example
+
+[@4]  Run =sudo apt-get update=
+
+Done, now you can install packages from this offline repository by running
+=sudo apt-get install your_package_name=.
