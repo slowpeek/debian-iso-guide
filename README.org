@@ -91,8 +91,8 @@ Debian mirrors don't waste disk space on stuff very rarely used yet still
 provide an option to get those extra images.
 
 The first image in a set contains the installer and some debs. The rest only
-provide debs. The images can be used as local repositories with help of
-=apt-cdrom= tool to reduce network usage or use Debian on an offline system.
+provide debs. The images can be used as local repositories to reduce network
+usage or use Debian on an offline system.
 
 Complete sets of =DVD=, =BD= and =DLBD= iso images contain the same set of debs,
 namely all Debian packages. The single =16G= image is severely cut down compared
