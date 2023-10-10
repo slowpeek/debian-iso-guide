@@ -20,9 +20,9 @@ download from torrents, consider using regional [[https://www.debian.org/CD/http
 same directory structure as outlined above.
 
 Back to the iso images. There are multiple live images which bundle different
-desktop environments, one per iso. To say, =debian-live-12.1.0-amd64-gnome.iso=
-evidently comes with the GNOME desktop, =debian-live-12.1.0-amd64-kde.iso= has
-KDE Plasma and so on. An exception is =debian-live-12.1.0-amd64-standard.iso=
+desktop environments, one per iso. To say, =debian-live-12.2.0-amd64-gnome.iso=
+evidently comes with the GNOME desktop, =debian-live-12.2.0-amd64-kde.iso= has
+KDE Plasma and so on. An exception is =debian-live-12.2.0-amd64-standard.iso=
 which is text only. So if you pick the GNOME one, you get a live GNOME
 environment and installer for Debian with GNOME, 2 in 1. The installer does not
 require a network connection.
@@ -59,7 +59,7 @@ Points of interest:
 
 *** iso-cd
 
-This is where the =debian-12.1.0-amd64-netinst.iso= netinstaller resides. The
+This is where the =debian-12.2.0-amd64-netinst.iso= netinstaller resides. The
 default download link on debian.org points to it. The "net" in the name does not
 mean it requires network to do its job. But since it is small (CD size), without
 network it can only install the base system. Otherwise there is a dialog to pick
@@ -67,7 +67,7 @@ a desktop environment to *download* and install.
 
 *** iso-dvd
 
-Here you can see =debian-12.1.0-amd64-DVD-1.iso=. It is like the netinstaller,
+Here you can see =debian-12.2.0-amd64-DVD-1.iso=. It is like the netinstaller,
 but with all desktops bundled. Using this image you can install Debian with
 GNOME, KDE etc on an offline machine.
 
@@ -112,7 +112,7 @@ So for example to create all the =BD= images you'd run:
 #+begin_src sh
   base=https://cdimage.debian.org/debian-cd/current/amd64/
   for disk in {1..5}; do
-      jigdo-lite "$base"/jigdo-bd/debian-12.1.0-amd64-BD-"$disk".jigdo || break
+      jigdo-lite "$base"/jigdo-bd/debian-12.2.0-amd64-BD-"$disk".jigdo || break
   done
 #+end_src
 
@@ -163,5 +163,5 @@ Now check the iso:
 Good response:
 
 #+begin_example
-  debian-12.1.0-amd64-netinst.iso: OK
+  debian-12.2.0-amd64-netinst.iso: OK
 #+end_example
