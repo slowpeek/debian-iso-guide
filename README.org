@@ -77,8 +77,7 @@ for the current release. You can create the rest with =jigdo= (explained below).
 *** iso-bd, iso-dlbd, iso-16G
 
 These either don't contain generic images or don't exist. If you need it, you'd
-have to create the images with =jigdo= (explained below). There are five =BD=
-images, two =DLBD= and one =16G=.
+have to create the images with =jigdo= (explained below).
 
 *** jigdo-X
 
