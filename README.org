@@ -116,6 +116,15 @@ So for example to create all the =BD= images you'd run:
   done
 #+end_src
 
+Another thing with jigdo is it can calculate changes between two images and
+create one from another only downloading the changed files. This way you can
+upgrade iso images between point releases using much less traffic.
+
+Say you have downloaded =debian-12.0.0-amd64-DVD-1.iso= previously and want to
+upgrade it to =12.1.0=. First, mount the existing iso somewhere. Next, run
+=jigdo-lite= with the url of =debian-12.1.0-amd64-DVD-1.jigdo= and when it asks
+if you had some older revision of the iso, feed it the mount location.
+
 ** Mini installer iso
 
 There is also an extremely small installer which requires network to do its
