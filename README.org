@@ -110,7 +110,7 @@ Here is how you can build an iso image with jigdo:
 So for example to create all the =BD= images you'd run:
 
 #+begin_src sh
-  base=https://cdimage.debian.org/debian-cd/current/amd64/
+  base=https://cdimage.debian.org/cdimage/release/12.2.0/amd64/
   for disk in {1..5}; do
       jigdo-lite "$base"/jigdo-bd/debian-12.2.0-amd64-BD-"$disk".jigdo || break
   done
