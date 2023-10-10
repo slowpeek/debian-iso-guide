@@ -107,12 +107,12 @@ Here is how you can build an iso image with jigdo:
 - run =jigdo-lite= with url to some of the =.jigdo= files
 - when asked for Debian mirror to use, make it =http://ftp.debian.org/debian/=
 
-So for example to create all the =BD= images you'd run:
+So for example to create the first five =DVD= images you'd run:
 
 #+begin_src sh
-  base=https://cdimage.debian.org/cdimage/release/12.2.0/amd64/
+  base=https://cdimage.debian.org/cdimage/release/12.2.0/amd64
   for disk in {1..5}; do
-      jigdo-lite "$base"/jigdo-bd/debian-12.2.0-amd64-BD-"$disk".jigdo || break
+      jigdo-lite "$base"/jigdo-dvd/debian-12.2.0-amd64-DVD-"$disk".jigdo || break
   done
 #+end_src
 
