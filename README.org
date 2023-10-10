@@ -72,7 +72,8 @@ but with all desktops bundled. Using this image you can install Debian with
 GNOME, KDE etc on an offline machine.
 
 You can notice this image is marked =DVD-1=. Overall there are 21 =DVD= images
-for the current release. You can create the rest with =jigdo= (explained below).
+for the current =12.2.0= release. You can create the rest with =jigdo=
+(explained below).
 
 *** iso-bd, iso-dlbd, iso-16G
 
