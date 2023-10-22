@@ -82,8 +82,9 @@ have to create the images with =jigdo= (explained below).
 
 *** jigdo-X
 
-Here you can see some files with =.jigdo= and =.template= extensions. With that
-you can reconstruct all iso images not readily available to download.
+Here you can see some files with =.jigdo= (gzipped text) and =.template=
+extensions. With that you can reconstruct all iso images not readily available
+to download.
 
 The reason behind providing only a few iso images as-is and the rest as jigdo is
 most people only need an installer, not the complete set of packages. This way
@@ -110,7 +111,9 @@ Here is how you can build an iso image with jigdo:
 
 - have =jigdo-file= package installed
 - run =jigdo-lite= with url to some of the =.jigdo= files
-- when asked for Debian mirror to use, make it =http://ftp.debian.org/debian/=
+- when asked for a Debian mirror to use, make it =http://ftp.debian.org/debian/=
+  (for out-of-support releases it should be
+  =http://archive.debian.org/debian-archive/debian/=)
 
 So for example to create the first five =DVD= images you'd run:
 
@@ -129,6 +132,76 @@ Say you have downloaded =debian-12.0.0-amd64-DVD-1.iso= previously and want to
 upgrade it to =12.1.0=. First, mount the existing iso somewhere. Next, run
 =jigdo-lite= with the url of =debian-12.1.0-amd64-DVD-1.jigdo= and when it asks
 if you had some older revision of the iso, feed it the mount location.
+
+*** Notice on 404 errors in jigdo
+
+Generic Debian mirrors do not keep obsolete packages. For example, the current
+version of =openssh-client= in Debian 10 is =7.9p1-10+deb10u2=. Let's compare
+that to the versions listed in jigdo files of the first DVD for 10.0.0 and
+10.2.0:
+
+| source                          | openssh-client version |
+|---------------------------------+------------------------|
+| debian-10.0.0-amd64-DVD-1.jigdo | 7.9p1-10               |
+| debian-10.2.0-amd64-DVD-1.jigdo | 7.9p1-10+deb10u1       |
+| current                         | 7.9p1-10+deb10u2       |
+
+In the following we will use such bash function:
+
+#+begin_src sh
+  list_ssh_client () {
+      wget -qO- "$1"/pool/main/o/openssh/ |
+          grep -oP '(?<=>)openssh-client_7.9p1-10.*amd64.deb'
+  }
+#+end_src
+
+If you look into a generic mirror, you'll only see =7.9p1-10+deb10u2= there out
+of the 7.9 branch:
+
+#+begin_example
+  > list_ssh_client http://ftp.debian.org/debian
+  openssh-client_7.9p1-10+deb10u2_amd64.deb
+#+end_example
+
+The trick is there are other, /non generic/ mirrors in use. You can see this in
+=debian-10.0.0-amd64-DVD-1.jigdo=:
+
+#+begin_example
+  > zcat debian-10.0.0-amd64-DVD-1.jigdo | tail
+  ..
+
+  [Servers]
+  Debian=http://us.cdimage.debian.org/cdimage/snapshot/Debian/
+  Debian=http://snapshot.debian.org/archive/debian/20190707T102257Z/ --try-last
+#+end_example
+
+The first url is a keep-everything mirror:
+
+#+begin_example
+  > list_ssh_client http://us.cdimage.debian.org/cdimage/snapshot/Debian
+  openssh-client_7.9p1-10+deb10u1_amd64.deb
+  openssh-client_7.9p1-10+deb10u2_amd64.deb
+  openssh-client_7.9p1-10_amd64.deb
+#+end_example
+
+The second url is a generic mirror snapshot dated Jul 7, 2019, the date of
+10.0.0 release:
+
+#+begin_example
+  > list_ssh_client http://snapshot.debian.org/archive/debian/20190707T102257Z
+  openssh-client_7.9p1-10_amd64.deb
+#+end_example
+
+The tool compiles a list of mirrors: the one provided by you and those, listed
+in the =Servers= section. Next, it tries to fetch the files from the first
+mirror in the list. This is the phase when you can see a lot of 404 errors. When
+done with the first mirror but there are still files to get, it moves to the
+second mirror in the list. And so on until all files are retrieved.
+
+To make it fast and minimize the non generic mirrors usage, when jigdo asks you
+for the mirror to use, give it =http://ftp.debian.org/debian/= for supported
+releases and =http://archive.debian.org/debian-archive/debian/= for
+out-of-support ones.
 
 ** Mini installer iso
 
