@@ -139,8 +139,8 @@ if you had some older revision of the iso, feed it the mount location.
 
 Generic Debian mirrors do not keep obsolete packages. For example, the current
 version of =openssh-client= in Debian 10 is =7.9p1-10+deb10u2=. Let's compare
-that to the versions listed in jigdo files of the first DVD for 10.0.0 and
-10.2.0:
+that to the versions listed in jigdo files of the first DVD for =10.0.0= and
+=10.2.0=:
 
 | source                          | openssh-client version |
 |---------------------------------+------------------------|
@@ -165,8 +165,8 @@ of the 7.9 branch:
   openssh-client_7.9p1-10+deb10u2_amd64.deb
 #+end_example
 
-The trick is there are other, /non generic/ mirrors in use. You can see this in
-=debian-10.0.0-amd64-DVD-1.jigdo=:
+The trick is there are other, /non-generic/, mirrors mentioned in jigdo
+files. For example, =debian-10.0.0-amd64-DVD-1.jigdo=:
 
 #+begin_example
   > zcat debian-10.0.0-amd64-DVD-1.jigdo | tail
@@ -186,8 +186,8 @@ The first url is a keep-everything mirror:
   openssh-client_7.9p1-10_amd64.deb
 #+end_example
 
-The second url is a generic mirror snapshot dated Jul 7, 2019, the date of
-10.0.0 release:
+The second url is a generic mirror snapshot dated =Jul 7, 2019=, the date of
+=10.0.0= release:
 
 #+begin_example
   > list_ssh_client http://snapshot.debian.org/archive/debian/20190707T102257Z
@@ -196,12 +196,12 @@ The second url is a generic mirror snapshot dated Jul 7, 2019, the date of
 
 The tool compiles a list of mirrors: the one provided by you and those, listed
 in the =Servers= section. Next, it tries to fetch the files from the first
-mirror in the list. This is the phase when you can see a lot of 404 errors. When
-done with the first mirror but there are still files to get, it moves to the
-second mirror in the list. And so on until all files are retrieved.
+mirror in the list. This is the phase when you can see a lot of =404=
+errors. When done with the first mirror but there are still files to get, it
+moves to the second mirror in the list. And so on until all files are retrieved.
 
-To make it fast and minimize the non generic mirrors usage, when jigdo asks you
-for the mirror to use, give it =http://ftp.debian.org/debian/= for supported
+To make it fast and minimize the non-generic mirrors usage, when =jigdo= asks
+you for the mirror to use, give it =http://ftp.debian.org/debian/= for supported
 releases and =http://archive.debian.org/debian-archive/debian/= for
 out-of-support ones.
 
