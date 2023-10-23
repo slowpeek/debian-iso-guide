@@ -1,8 +1,10 @@
 * Your guide to Debian iso downloads
 
-- Current release only: https://cdimage.debian.org/debian-cd/
-- Common place for all releases: https://cdimage.debian.org/cdimage/
-- Current release in the common place: https://cdimage.debian.org/cdimage/release/
+- Current release only :: https://cdimage.debian.org/debian-cd/
+- All downloads :: https://cdimage.debian.org/cdimage/
+
+  In particular you can find there the [[https://cdimage.debian.org/cdimage/release/][current]] release (same as above), [[https://cdimage.debian.org/cdimage/archive/][older]]
+  releases and point releases, [[https://cdimage.debian.org/cdimage/firmware/][firmware]] packages.
 
 Let's explore the current release location. There you can see a few subdirs. The
 ones of interest are =current= (installer) and =current-live= (installer + live
