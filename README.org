@@ -114,8 +114,7 @@ Here is how you can build an iso image with jigdo:
 - have =jigdo-file= package installed
 - run =jigdo-lite= with url to some of the =.jigdo= files
 - when asked for a Debian mirror to use, make it =http://ftp.debian.org/debian/=
-  (for out-of-support releases it should be
-  =http://archive.debian.org/debian-archive/debian/=)
+  (for out-of-support releases it should be =http://archive.debian.org/debian/=)
 
 So for example to create the first five =DVD= images you'd run:
 
@@ -202,8 +201,7 @@ moves to the second mirror in the list. And so on until all files are retrieved.
 
 To make it fast and minimize the non-generic mirrors usage, when =jigdo= asks
 you for the mirror to use, give it =http://ftp.debian.org/debian/= for supported
-releases and =http://archive.debian.org/debian-archive/debian/= for
-out-of-support ones.
+releases and =http://archive.debian.org/debian/= for out-of-support ones.
 
 ** Mini installer iso
 
