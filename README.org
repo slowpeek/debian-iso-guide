@@ -233,7 +233,7 @@ signature:
 Good response:
 
 #+begin_example
-  gpg: Signature made Sat 10 Jun 2023 16:58:34 EEST
+  gpg: Signature made Mon 11 Dec 2023 00:46:26 UTC
   gpg:                using RSA key DF9B9C49EAA9298432589D76DA87E80D6294BE9B
   gpg: Good signature from "Debian CD signing key <debian-cd@lists.debian.org>" [unknown]
   gpg: WARNING: This key is not certified with a trusted signature!
