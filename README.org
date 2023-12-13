@@ -132,7 +132,9 @@ upgrade iso images between point releases using much less traffic.
 Say you have downloaded =debian-12.0.0-amd64-DVD-1.iso= previously and want to
 upgrade it to =12.1.0=. First, mount the existing iso somewhere. Next, run
 =jigdo-lite= with the url of =debian-12.1.0-amd64-DVD-1.jigdo= and when it asks
-if you had some older revision of the iso, feed it the mount location.
+if you had some older revision of the iso, feed it the mount
+location. Alternatively, you can use =--noask= and provide the mount path with
+the =--scan= option to make it non-interactive.
 
 *** Notice on 404 errors in jigdo
 
