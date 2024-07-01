@@ -227,13 +227,13 @@ all three files into the same dir. Next, in that dir we first check the
 signature:
 
 #+begin_example
-  gpg --verify SHA256SUMS.sign SHA256SUMS
+  TZ=UTC LC_ALL=C gpg --verify SHA256SUMS.sign SHA256SUMS
 #+end_example
 
 Good response:
 
 #+begin_example
-  gpg: Signature made Sat 29 Jun 2024 11:50:21 PM EEST
+  gpg: Signature made Sat Jun 29 20:50:21 2024 UTC
   gpg:                using RSA key DF9B9C49EAA9298432589D76DA87E80D6294BE9B
   gpg: Good signature from "Debian CD signing key <debian-cd@lists.debian.org>" [unknown]
   gpg: WARNING: This key is not certified with a trusted signature!
