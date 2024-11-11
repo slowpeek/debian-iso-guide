@@ -10,10 +10,10 @@ Let's explore the current release location. There you can see a few subdirs. The
 ones of interest are =current= (installer) and =current-live= (installer + live
 system).
 
-** Live iso
+** Live iso (most likely, you want this)
 
-Lets start with =current-live=, it is what most people want. Going into the dir
-you'll see there is only one arch to chose from, =amd64=. Descend there.
+Lets start with =current-live=. Going into the dir you'll see there is only one
+arch to chose from, =amd64=. Descend there.
 
 Now you have a choice: either download from torrents (=bt-hybrid= subdir) or
 directly (=iso-hybrid= subdir). Torrents is the better choice, this way you do
@@ -21,13 +21,13 @@ not contribute to bandwidth usage on Debian's servers. In case you can't
 download from torrents, consider using regional [[https://www.debian.org/CD/http-ftp/#mirrors][mirrors]]. The mirrors host the
 same directory structure as outlined above.
 
-Back to the iso images. There are multiple live images which bundle different
-desktop environments, one per iso. To say, =debian-live-12.8.0-amd64-gnome.iso=
-evidently comes with the GNOME desktop, =debian-live-12.8.0-amd64-kde.iso= has
-KDE Plasma and so on. An exception is =debian-live-12.8.0-amd64-standard.iso=
-which is text only. So if you pick the GNOME one, you get a live GNOME
-environment and installer for Debian with GNOME, 2 in 1. The installer does not
-require a network connection.
+Back to the iso images. As you can see, there are many images to choose
+from. They bundle different desktop environments, one per iso. To say,
+=debian-live-12.8.0-amd64-gnome.iso= comes with the GNOME desktop,
+=debian-live-12.8.0-amd64-kde.iso= has KDE Plasma and so on. An exception is
+=debian-live-12.8.0-amd64-standard.iso= which is text only. So if you pick the
+GNOME one, you get a live GNOME environment and installer for Debian with GNOME,
+2 in 1. The installer does not require a network connection.
 
 There is an [[#iso-dvd][alternative]] installer (not a live system) with all desktops included
 yet of nearly the same size as those live images. Using it, at some point there
