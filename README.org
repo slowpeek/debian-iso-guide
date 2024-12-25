@@ -221,10 +221,13 @@ command:
   gpg --recv-key --keyserver keyring.debian.org 6294BE9B
 #+end_example
 
-With the key acquired and netinstaller downloaded, lets validate it. Go to the
-netinstaller's [[https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/][home]] and fetch =SHA256SUMS= and =SHA256SUMS.sign= from there. Put
-all three files into the same dir. Next, in that dir we first check the
-signature:
+*Notice*: You only need to fetch the key once. It is added to your default
+keyring, likely, =~/.gnupg/pubring.kbx=.
+
+With the key acquired and the [[https://cdimage.debian.org/cdimage/release/12.8.0/amd64/iso-cd/debian-12.8.0-amd64-netinst.iso][netinstaller]] downloaded, let's validate it. We
+need to fetch two small files from *the same location as the iso*: [[https://cdimage.debian.org/cdimage/release/12.8.0/amd64/iso-cd/SHA256SUMS][SHA256SUMS]]
+and [[https://cdimage.debian.org/cdimage/release/12.8.0/amd64/iso-cd/SHA256SUMS.sign][SHA256SUMS.sign]]. Put all three files into the same dir. Next, in that dir,
+we verify the signature of =SHA256SUMS=:
 
 #+begin_example
   TZ=UTC LC_ALL=C gpg --verify SHA256SUMS.sign SHA256SUMS
@@ -243,7 +246,7 @@ Good response:
 
 Notice is says "Good signature" and the key used was =6294BE9B=.
 
-Now check the iso:
+Finally, check the iso:
 
 #+begin_example
   sha256sum -c --ignore-missing SHA256SUMS
