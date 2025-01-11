@@ -101,7 +101,7 @@ Complete sets of =DVD=, =BD= and =DLBD= iso images contain the same set of debs,
 namely all Debian packages. The single =16G= image is severely cut down compared
 to other variants.
 
-Previously there were also sets of =CD= images. For example in Debian 8.11.0 it
+Previously there were also sets of =CD= images. For example, in Debian 8.11.0 it
 comprised of [[https://cdimage.debian.org/cdimage/archive/8.11.0/amd64/jigdo-cd/][82]] iso images.
 
 =jigdo-dvd= additionally provides cumulative update images for point
@@ -116,7 +116,7 @@ Here is how you can build an iso image with jigdo:
 - when asked for a Debian mirror to use, make it =http://ftp.debian.org/debian/=
   (for out-of-support releases it should be =http://archive.debian.org/debian/=)
 
-So for example to create the first five =DVD= images you'd run:
+For example, to create the first five =DVD= images, you'd run:
 
 #+begin_src sh
   base=https://cdimage.debian.org/cdimage/release/12.9.0/amd64
