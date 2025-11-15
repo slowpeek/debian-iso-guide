@@ -23,9 +23,9 @@ same directory structure as outlined above.
 
 Back to the iso images. As you can see, there are many images to choose
 from. They bundle different desktop environments, one per iso. To say,
-=debian-live-13.1.0-amd64-gnome.iso= comes with the GNOME desktop,
-=debian-live-13.1.0-amd64-kde.iso= has KDE Plasma and so on. An exception is
-=debian-live-13.1.0-amd64-standard.iso= which is text only. So if you pick the
+=debian-live-13.2.0-amd64-gnome.iso= comes with the GNOME desktop,
+=debian-live-13.2.0-amd64-kde.iso= has KDE Plasma and so on. An exception is
+=debian-live-13.2.0-amd64-standard.iso= which is text only. So if you pick the
 GNOME one, you get a live GNOME environment and installer for Debian with GNOME,
 2 in 1. The installer does not require a network connection.
 
@@ -61,7 +61,7 @@ Points of interest:
 
 *** iso-cd
 
-This is where the =debian-13.1.0-amd64-netinst.iso= netinstaller resides. The
+This is where the =debian-13.2.0-amd64-netinst.iso= netinstaller resides. The
 default download link on debian.org points to it. The "net" in the name does not
 mean it requires network to do its job. But since it is small (CD size), without
 network it can only install the base system. Otherwise there is a dialog to pick
@@ -69,12 +69,12 @@ a desktop environment to *download* and install.
 
 *** iso-dvd
 
-Here you can see =debian-13.1.0-amd64-DVD-1.iso=. It is like the netinstaller,
+Here you can see =debian-13.2.0-amd64-DVD-1.iso=. It is like the netinstaller,
 but with all desktops bundled. Using this image you can install Debian with
 GNOME, KDE etc on an offline machine.
 
 You can notice this image is marked =DVD-1=. Overall there are 28 =DVD= images
-for the current =13.1.0= release. You can create the rest with =jigdo=
+for the current =13.2.0= release. You can create the rest with =jigdo=
 (explained below).
 
 *** iso-bd, iso-dlbd, iso-16G
@@ -119,9 +119,9 @@ Here is how you can build an iso image with jigdo:
 For example, to create the first five =DVD= images, you'd run:
 
 #+begin_src sh
-  base=https://cdimage.debian.org/cdimage/release/13.1.0/amd64
+  base=https://cdimage.debian.org/cdimage/release/13.2.0/amd64
   for disk in {1..5}; do
-      jigdo-lite "$base"/jigdo-dvd/debian-13.1.0-amd64-DVD-"$disk".jigdo || break
+      jigdo-lite "$base"/jigdo-dvd/debian-13.2.0-amd64-DVD-"$disk".jigdo || break
   done
 #+end_src
 
@@ -224,9 +224,9 @@ command:
 *Notice*: You only need to fetch the key once. It is added to your default
 keyring, likely, =~/.gnupg/pubring.kbx=.
 
-With the key acquired and the [[https://cdimage.debian.org/cdimage/release/13.1.0/amd64/iso-cd/debian-13.1.0-amd64-netinst.iso][netinstaller]] downloaded, let's validate it. We
-need to fetch two small files from *the same location as the iso*: [[https://cdimage.debian.org/cdimage/release/13.1.0/amd64/iso-cd/SHA256SUMS][SHA256SUMS]]
-and [[https://cdimage.debian.org/cdimage/release/13.1.0/amd64/iso-cd/SHA256SUMS.sign][SHA256SUMS.sign]]. Put all three files into the same dir. Next, in that dir,
+With the key acquired and the [[https://cdimage.debian.org/cdimage/release/13.2.0/amd64/iso-cd/debian-13.2.0-amd64-netinst.iso][netinstaller]] downloaded, let's validate it. We
+need to fetch two small files from *the same location as the iso*: [[https://cdimage.debian.org/cdimage/release/13.2.0/amd64/iso-cd/SHA256SUMS][SHA256SUMS]]
+and [[https://cdimage.debian.org/cdimage/release/13.2.0/amd64/iso-cd/SHA256SUMS.sign][SHA256SUMS.sign]]. Put all three files into the same dir. Next, in that dir,
 we verify the signature of =SHA256SUMS=:
 
 #+begin_example
@@ -236,7 +236,7 @@ we verify the signature of =SHA256SUMS=:
 Good response:
 
 #+begin_example
-  gpg: Signature made Sat Sep  6 21:54:28 2025 UTC
+  gpg: Signature made Sat Nov 15 17:34:58 2025 UTC
   gpg:                using RSA key DF9B9C49EAA9298432589D76DA87E80D6294BE9B
   gpg: Good signature from "Debian CD signing key <debian-cd@lists.debian.org>" [unknown]
   gpg: WARNING: This key is not certified with a trusted signature!
@@ -255,5 +255,5 @@ Finally, check the iso:
 Good response:
 
 #+begin_example
-  debian-13.1.0-amd64-netinst.iso: OK
+  debian-13.2.0-amd64-netinst.iso: OK
 #+end_example
