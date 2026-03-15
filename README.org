@@ -104,10 +104,11 @@ to other variants.
 Previously there were also sets of =CD= images. For example, in Debian 8.11.0 it
 comprised of [[https://cdimage.debian.org/cdimage/archive/8.11.0/amd64/jigdo-cd/][82]] iso images.
 
-=jigdo-dvd= additionally provides cumulative update images for point
-releases. For example, using just four =debian-update-12.11.0-amd64-DVD-X.iso=
-images one can upgrade an offline machine to =12.11.0= from any state down to
-stock =12.0.0=.
+Up to Debian 12, =jigdo-dvd= additionally provided cumulative update images for
+point releases. For example, using just four
+=debian-update-12.13.0-amd64-DVD-X.iso= images one could update an offline
+machine to =12.13.0= from any state down to stock =12.0.0=. *Since Debian 13, the
+update image are no longer provided*.
 
 Here is how you can build an iso image with jigdo:
 
